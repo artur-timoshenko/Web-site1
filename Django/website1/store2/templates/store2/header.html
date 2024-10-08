@@ -1,0 +1,46 @@
+<header class="header" id="header">
+    <nav class="container">
+        <ul>
+            <li>
+                <a href="/store2/">
+                    Store
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="/store2/new/">
+                    New collection
+                </a>
+            </li>
+            <li>
+                <a href="/store2/sales/">
+                    Sales
+                </a>
+            </li>
+            <li>
+                <a href="/store2/season/">
+                    Season
+                </a>
+            </li>
+            <li>
+                <a href="/store2/cart/">
+                    Cart
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                {% if user.is_authenticated %}
+                    <a href="/store2/sign-out/">
+                        {{user.username}} <i class="ri-logout-box-r-line"></i>
+                    </a>
+                {% else %}
+                    <a href="/store2/sign-in/">
+                        <i class="ri-login-box-line"></i> Sign In
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+</header>

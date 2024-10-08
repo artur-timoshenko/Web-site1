@@ -1,0 +1,26 @@
+<div class="payment-amount">
+    <div class="cart">
+      {% for cartItem in cartItems %}
+        <div class="cartItem">
+          <img src="/media/{{cartItem.product.photo}}" alt="Product image"><br>
+          {{cartItem.product.title}}: ${{cartItem.product.price}}
+          <button type="button" class="remove-button" hx-get="" hx-trigger="changed" productId="{{cartItem.product.id}}">remove</button>
+          <div class="buttons">
+            <button type="button" class="decrease-button" hx-get="" hx-trigger="changed" productId="{{cartItem.product.id}}">–</button>
+            {{cartItem.quantity}}
+            <button type="button" class="increase-button" hx-get="" hx-trigger="changed" productId="{{cartItem.product.id}}">+</button>
+          </div>
+        </div>
+        <br>
+      {% endfor %}
+      <div class="procced">
+        <br>
+        Total: ${{total}}
+        <br><br>
+        <button class="payment-button" type="button" id="procced">
+          Procced to payment
+        </button>
+      </div>
+    </div>
+<!--  </div>-->
+</div>

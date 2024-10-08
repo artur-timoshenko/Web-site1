@@ -1,0 +1,50 @@
+<div class="cartMenu">
+    {% if cartItems %}
+        <div class="dot"></div>
+    {% endif %}
+    <button id="cartMenu"><i class="ri-shopping-cart-2-line"></i></button>
+</div>
+
+<dialog id="cart">
+    <div class="cart">
+        {% if cartItems %}
+            <div class="products" hx-target=".cart" hx-select=".cart > *" hx-swap="innerHTML">
+                {% for cartItem in cartItems %}
+                    <div class="product">
+                        <img src="/media/{{cartItem.product.photo}}" alt="photo" loading="lazy">
+
+                        <div class="details">
+                            <div class="title">
+                                {{cartItem.product.title}}
+                            </div>
+
+                            <div class="price">
+                                $ {{cartItem.product.price|floatformat}}
+                            </div>
+
+                            <input type="text" autofocus="autofocus" style="display:none" />
+
+                            <div class="quantity">
+                                <input hx-get="" hx-trigger="changed" productId="{{cartItem.product.id}}" value="{{cartItem.quantity}}"
+                                       type="number" name="quantity" inputmode="numeric" pattern="^[0-9]+$" min="0">
+                            </div>
+
+                            <button class="remove-button" hx-get="" hx-trigger="changed" productId="{{cartItem.product.id}}">Remove</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="checkout">
+                <button id="checkout">
+                    $ {{total}} Checkout
+                </button>
+            </div>
+        {% else %}
+            <p>No items found</p>
+        {% endif %}
+
+        <form method="dialog">
+            <button><i class="ri-close-line"></i></button>
+        </form>
+    </div>
+</dialog>

@@ -1,0 +1,22 @@
+<!-- Display a payment form -->
+<div class="payment-check">
+  Total: ${{total}}
+  <br><br>
+  <input type="text" id="email" placeholder="Enter email address"/>
+  <div id="payment-element">
+    <!--Stripe.js injects the Payment Element-->
+  </div>
+  <button class="payment-button" id="submit" type="submit" disabled>
+    <div class="spinner hidden" id="spinner"></div>
+    <span id="button-text">Pay now</span>
+  </button>
+  <div id="payment-message" class="hidden"></div>
+</div>
+
+<!-- [DEV]: For demo purposes only, display dynamic payment methods annotation and integration checker -->
+<!--<div id="dpm-annotation">-->
+<!--  <p>-->
+<!--    Payment methods are dynamically displayed based on customer location, order amount, and currency.&nbsp;-->
+<!--    <a href="#" target="_blank" rel="noopener noreferrer" id="dpm-integration-checker">Preview payment methods by transaction</a>-->
+<!--  </p>-->
+<!--</div>-->

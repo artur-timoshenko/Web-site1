@@ -1,0 +1,21 @@
+<div class="product">
+    <div class="title">
+        {{product.title}}: {{product.price|floatformat:0}}$
+    </div>
+
+    <img src="/media/{{product.photo}}" alt="Product image">
+
+    <div class="description">
+        {{product.description}}
+    </div>
+
+    <div class="buttons">
+        <select name="select" id="select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </select>
+        <button hx-target=".header" hx-select=".header > *" hx-swap="innerHTML" hx-get="" hx-trigger="changed" productId="{{product.id}}">Add to cart</button>
+    </div>
+</div>

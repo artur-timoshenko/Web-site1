@@ -1,0 +1,59 @@
+<div class="catalog">
+    <div class="filters">
+        <div>
+            <form id='filter' method="GET" action="">
+                Title: {{form.title__icontains}}
+                Description: {{form.description__icontains}}
+                <div class="price">
+                    Price:
+                    <div class="price-number">
+                        {{form.price__gte}}{{form.price__lte}}
+                    </div>
+                    <div class="price-range">
+                        {{form.price}}
+                    </div>
+                </div>
+            </form>
+            <form id='clear' method="GET" action="">
+            </form>
+
+            <div class="submit">
+                <input form="filter" type="submit" value="Submit" />
+                <input form="clear" type="submit" value="Clear"/>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="information">
+            Our store offers a wide range of products for everyone, from the cheapest and most affordable clothes to unique stuff from limited collections that you won't find anywhere else.
+        </div>
+        <div class="items">
+            <div class="pages">
+                {{minIndex}} - {{maxIndex}} of {{productsCount}} results <br>
+                <div class="pagination">
+                    <a onclick="changeUrlParameter('page', '{{previousPage}}')"> < </a>
+                    {{currentPage}}
+                    <a onclick="changeUrlParameter('page', '{{nextPage}}')"> > </a>
+<!--                    <a hx-target=".items" hx-select=".items > *" hx-swap="innerHTML" hx-get="/store/catalog/" hx-vals="js:{...addUrlParameter('page', '{{previousPage}}')}"> < </a>-->
+<!--                    <a hx-target=".items" hx-select=".items > *" hx-swap="innerHTML" hx-get="/store/catalog/" hx-vals="js:{...addUrlParameter('page', '{{nextPage}}')}"> > </a>-->
+                </div>
+            </div>
+            <ul>
+                {% for product in products %}
+                    <li productId="{{product.id}}">
+                        {{product.title}}: ${{product.price|floatformat:0}}
+<!--                        {% if product.id == 1 %}-->
+<!--                            <img src="https://static.vecteezy.com/system/resources/thumbnails/022/024/832/small_2x/pink-skirt-isolated-on-a-transparent-background-png.png" alt="item">-->
+<!--                        {% else %}-->
+<!--                            <img src="https://png.pngtree.com/png-clipart/20230930/original/pngtree-white-t-shirt-mockup-realistic-t-shirt-png-image_13020297.png" alt="item">-->
+<!--                        {% endif %}-->
+                        <img src="/media/{{product.photo}}" alt="Product image">
+                        <div class="buttons">
+                            <button hx-target=".header" hx-select=".header > *" hx-swap="innerHTML" hx-get="" hx-trigger="changed" productId="{{product.id}}">Add to cart</button>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+body {
+    overflow: hidden;
+}
+
+.main div {
+    min-height: calc(100vh);
+}
+
+.sign-form {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+
+    /*grid-template-columns: 1fr 1fr;*/
+}
+
+.sign-form form {
+    margin: 1rem;
+    font-family: var(--font-family-secondary);
+
+    display: grid;
+    /*justify-content: center;*/
+    align-content: center;
+
+    background: var(--background-color-primary);
+    padding: 1rem;
+    border-radius: 1rem;
+
+    width: 25vw;
+    min-width: 275px;
+}
+
+.sign-form img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    scale: 1.1;
+}
+
+.sign-form span {
+    color: rgb(255, 0, 0, 75%);
+}
+
+.sign-form form input {
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+    font-family: var(--font-family-secondary);
+    border-radius: 1rem;
+    border: solid 1px var(--background-color-secondary);
+    background-color: var(--background-color-optional);
+}
+
+.sign-form form input:focus {
+    background-color: var(--background-color-secondary);
+}
+
+.sign-form form input[type='submit'] {
+    cursor: pointer;
+}
+
+.sign-form form input[type='submit']:hover {
+    background-color: var(--background-color-secondary);
+}
+
+.sign-form form a {
+    text-decoration: underline;
+    width: fit-content;
+}
+
+.sign-form span,
+.sign-form ul {
+    /*margin-bottom: 1rem;*/
+    color: rgb(255, 0, 0, 75%);
+    /*font-size: var(--font-size-small);*/
+}

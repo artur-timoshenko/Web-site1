@@ -1,0 +1,44 @@
+.main div {
+    min-height: calc(100vh - 67px);
+}
+
+.sign-form {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.sign-form form {
+    margin: 1rem;
+    font-family: var(--font-family-secondary);
+}
+
+.sign-form form input {
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+    font-family: var(--font-family-secondary);
+    border-radius: 1rem;
+    border: solid 1px var(--background-color-optional);
+    background-color: var(--background-color-primary);
+}
+
+.sign-form form input[type='submit'] {
+    cursor: pointer;
+}
+
+.sign-form form input[type='submit']:hover {
+    background-color: var(--background-color-secondary);
+    color: var(--background-color-primary);
+}
+
+.sign-form form a {
+    text-decoration: underline;
+}
+
+.sign-form span,
+.sign-form ul {
+    /*margin-bottom: 1rem;*/
+    color: rgb(255, 0, 0, 75%);
+    font-size: var(--font-size-small);
+}

@@ -1,0 +1,6 @@
+.main {
+    display: grid;
+    align-items: center;
+
+    min-height: calc(100vh);
+}

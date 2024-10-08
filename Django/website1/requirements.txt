@@ -5,3 +5,4 @@ django-filter==24.3
 djangorestframework
 pillow
 python-dotenv
+django-cors-headers==4.4.0
